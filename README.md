@@ -1,2 +1,3 @@
 # trout
-yes
+yes \
+port 8053

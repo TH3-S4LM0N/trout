@@ -1,22 +1,44 @@
-<script setup lang="ts">
-import Gret from "./components/Greet.vue";
-</script>
-
 <template>
-    <div class="container">
-        <el-menu id="el-menu-tbar">
-            aaaaaaaaaaaa
+    <div id="container">
+        <el-menu
+            default-active="/home"
+            router
+            mode="horizontal"
+            id="tbar"
+            background-color="#1e2127"
+            text-color="#abb2bf"
+            active-text-color="#40a4ff"
+            :ellipsis="false"
+        >
+            <el-menu-item index="/home">Home</el-menu-item>
+            <div id="flex-grow" />
+            <el-button circle>a</el-button>
+            <div id="flex-grow" />
+            <el-sub-menu id="submenu">
+                <template #title>Libraries</template>
+                <el-menu-item index="/libraries/spotify">Spotify</el-menu-item>
+            </el-sub-menu>
         </el-menu>
-
-        <h1>
-            Welcome to Tauri thing yeah
-        </h1>
     </div>
 </template>
 
-<style scoped>
-#el-menu-tbar {
+<script setup lang="ts">
+    import  { Search, Upload } from '@element-plus/icons-vue';
+    import { toggle_play } from './commands/playback'
+</script>
+
+<style>
+#tbar {
     border: none !important;
-    background-color: black;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+#flex-grow {
+    flex-grow: 1;
 }
 </style>
+

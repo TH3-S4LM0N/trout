@@ -10,9 +10,12 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.0.10",
+    "@element-plus/theme-chalk": "^2.2.16",
     "@tauri-apps/api": "^1.2.0",
     "element-plus": "^2.2.27",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.2.2",

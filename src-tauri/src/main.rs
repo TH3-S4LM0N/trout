@@ -1,3 +1,4 @@
+// there has to be a better way to say we only support linux
 #![cfg(target_os = "linux")]
 
 mod apis;
@@ -6,7 +7,7 @@ mod commands;
 
 use std::path::PathBuf;
 
-use crate::{ utils::config::Config};
+use crate::utils::config::Config;
 
 const NAME: &str = env!("CARGO_CRATE_NAME");
 const CONFIG_NAME: &str = "trout.json";

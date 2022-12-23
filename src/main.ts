@@ -5,6 +5,7 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue';
 import { createRouter, createWebHashHistory } from "vue-router";
 import HomeView from './views/HomeView.vue';
 import SpotifyView from './views/libraries/SpotifyView.vue';
+import DebugView from  './views/DebugView.vue';
 
 const app = createApp(App);
 
@@ -18,6 +19,7 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 
 const routes = [
     { path: '/home', name: 'Home', component: async () => HomeView },
+    { path: '/debug', name: 'Debug', component: async () => DebugView },
     { path: '/libraries/spotify', name: 'Spotify', component: async () => SpotifyView }
 ];
 

@@ -3,3 +3,7 @@ dist/
 src-tauri/target/
 package-lock.json
 src-tauri/Cargo.lock
+*.code-workspace
+# is pull code as examples from both these repos
+librespot/
+spot/

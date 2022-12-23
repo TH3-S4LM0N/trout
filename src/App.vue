@@ -24,7 +24,7 @@
 
 <script setup lang="ts">
     import  { Search, Upload } from '@element-plus/icons-vue';
-    import { toggle_play } from './commands/playback'
+    import { test_customs } from './commands/debug';
 </script>
 
 <style>

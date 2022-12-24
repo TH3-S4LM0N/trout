@@ -1,9 +1,8 @@
-use crate::CONFIG_NAME;
+use crate::utils::CONFIG_NAME;
 use serde::{Deserialize, Serialize};
-use serde_json::{json, Value};
 use std::{
     fs::{self, write, File},
-    path::{Path, PathBuf}, io::Write,
+    path::PathBuf, io::Write,
 };
 
 #[derive(Serialize, Deserialize)]
@@ -22,11 +21,6 @@ impl Config {
             spotify_username: String::new(),
             spotify_password: String::new(),
         };
-
-        /*
-        let json = serde_json::to_string(&empty).expect("Failed to create empty JSON Config");
-        File::create(&path).expect("Failed to create config file");
-        write(&path, &json).expect("Failed to write JSON to config file"); */
 
         let mut file = File::create(&path).expect("Failed to create config file");
         file.write_all(&serde_json::to_string(&empty).expect("Failed to create empty JSON Config").as_bytes()).expect("Failed to write config file");

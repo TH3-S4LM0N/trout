@@ -4,6 +4,6 @@ export {
 
 }
 
-async function init() {
-    
+function init() {
+
 }

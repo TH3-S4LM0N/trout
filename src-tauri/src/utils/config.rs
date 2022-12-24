@@ -38,12 +38,13 @@ impl Config {
         write(&path, &json).expect("Failed to write JSON to config file");
     }
 
-    pub fn load(xdg_dirs: &xdg::BaseDirectories) -> Config {
+    pub fn load(xdg_dirs: &xdg::BaseDirectories) -> (Config, bool) {
         // loop to check if config file is valid
         // if it isnt err or smthn, create a new one
         // and try again
         let cfg_path = xdg_dirs.find_config_file(CONFIG_NAME);
         let mut cfg = Config::default();
+        let mut is_firstboot = false;
         loop {
             // does the xdg cfg exist
             let is = *&cfg_path.is_none();
@@ -53,6 +54,7 @@ impl Config {
                 let new_cfg_path = xdg_dirs.get_config_file(CONFIG_NAME);
                 println!("{:?}", &new_cfg_path);
                 Config::new(&new_cfg_path);
+                is_firstboot = true;
             // if it does exist then we read it into the struct
             } else {
                 cfg = serde_json::from_str(
@@ -64,6 +66,6 @@ impl Config {
             }
         }
 
-        return cfg;
+        return (cfg, is_firstboot);
     }
 }

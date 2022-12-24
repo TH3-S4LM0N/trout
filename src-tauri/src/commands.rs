@@ -1,4 +1,4 @@
-use crate::utils::{NAME, config::Config};
+use crate::{utils, utils::{Init, NAME, config::Config}};
 
 // debug stuff
 #[derive(serde::Serialize)]
@@ -18,11 +18,6 @@ pub fn print_test(to_print: String) {
 //
 // utils
 #[tauri::command]
-pub fn init() -> (xdg::BaseDirectories, Config) {
-    let xdg_dirs =
-        xdg::BaseDirectories::with_prefix(NAME).expect("Failed to create xdg directoreis");
-    
-    let cfg = Config::load(&xdg_dirs);
-
-    return (xdg_dirs, cfg);
+pub fn init() -> Init {
+    utils::init()
 }

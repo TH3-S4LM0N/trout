@@ -1,9 +1,17 @@
 <template>
     <div id="container">
-        <el-button id="testbutton" @click="test_customs">debug button</el-button>
+        <div id="shadow" h="30" w="20" m="2"/>
+
+        
     </div>
 </template>
 
 <script setup lang="ts">
-import { test_customs } from '../commands/debug';
+
 </script>
+
+<style>
+#shadow {
+    --el-shadow-box-dark: 'dark';
+}
+</style>

@@ -15,7 +15,7 @@ fn main() {
     // start tauri once everything is ready
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![
-            print_test, custom_cmd, init
+            print, init
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

@@ -23,8 +23,9 @@
 </template>
 
 <script setup lang="ts">
-    import  { Search, Upload } from '@element-plus/icons-vue';
-    import { test_customs } from './commands/debug';
+    import { init } from './commands/utils';
+
+    let init_vars = init();
 </script>
 
 <style>
